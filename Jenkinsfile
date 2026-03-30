@@ -8,21 +8,21 @@ pipeline
         {
             steps
             {
-                echo 'Building...'
+                echo 'Hello from Build...'
             }
         }
         stage('Test')
         {
             steps
             {
-                echo 'Testing...'
+                echo 'Hello from Test...'
             }
         }
         stage('Deploy')
         {
             steps
             {
-                echo 'Deploying...'
+                echo 'Hello from Deploy...'
             }
         }
     }

@@ -10,7 +10,7 @@ pipeline {
                 script {
                     sh """
                     echo "Build"
-                    echo "NODE_ENV: ${env.NODE_ENV}"
+                    echo "NODE_ENV: $NODE_ENV"
                     """
                 }
             }

@@ -8,17 +8,16 @@ pipeline {
                 // Add your build commands here
             }
         }
-        stage('Test') {
-            steps {
-                echo 'Testing...'
-                // Add your test commands here
-            }
+    }
+    post {
+        always {
+            echo 'This will always run after the stage.'
         }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying...'
-                // Add your deploy commands here
-            }
+        failure {
+            echo 'This will run only if the stage fails.'
+        }
+        success {
+            echo 'This will run only if the stage succeeds.'
         }
     }
 }

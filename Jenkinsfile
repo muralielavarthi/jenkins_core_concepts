@@ -4,8 +4,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building...'
-                // Add your build commands here
+                script {
+                    """sh echo 'Building..."""
+                }
             }
         }
     }

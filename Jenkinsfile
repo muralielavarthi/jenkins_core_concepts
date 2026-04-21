@@ -11,8 +11,6 @@ pipeline{
     }
     parameters {
         string(name: 'APP_VERSION', defaultValue: '1.0.0', description: 'Version of the application to build')
-        choice(name: 'DEPLOY_ENV', choices: ['dev', 'staging', 'production'], description: 'Target deployment environment')
-        booleanParam(name: 'RUN_TESTS', defaultValue: true, description: 'Whether to run tests')
     }
     stages{
         stage('Build') {
@@ -23,9 +21,6 @@ pipeline{
             }
         }
         stage('Test') {
-            when {
-                expression { params.RUN_TESTS == true }
-            }
             steps {
                 echo "Running tests for version: ${params.APP_VERSION}"
                 echo "Project: ${env.PROJECT}"
@@ -33,7 +28,7 @@ pipeline{
         }
         stage('Deploy') {
             steps {
-                echo "Deploying ${env.PROJECT} v${params.APP_VERSION} to ${params.DEPLOY_ENV}"
+                echo "Deploying ${env.PROJECT} v${params.APP_VERSION}"
             }
         }
     }

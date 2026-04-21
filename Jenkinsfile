@@ -1,8 +1,13 @@
 pipeline{
     agent {label 'nodejs-20'}
+
     environment {
         NODE_ENV = 'production'
         PROJECT = 'calc'
+    }
+    options {
+        timeout(time: 2, unit: 'SECONDS')
+        disableConcurrentBuilds()
     }
     stages{
         stage('Build') {
